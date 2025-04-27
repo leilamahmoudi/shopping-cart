@@ -42,7 +42,6 @@ function CartItem({ item }) {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "0.5rem",
           marginTop: "0.5rem",
         }}
       >
