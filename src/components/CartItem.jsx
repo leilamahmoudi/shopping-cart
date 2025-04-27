@@ -19,8 +19,11 @@ function CartItem({ item }) {
     <div
       style={{
         border: "1px solid #ccc",
+        borderRadius: "8px",
         padding: "1rem",
         marginBottom: "1rem",
+        backgroundColor: "#fff",
+        boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
       }}
     >
       <h3>{item.product.name}</h3>
@@ -33,16 +36,32 @@ function CartItem({ item }) {
       <p>Price: {item.product.price} SEK</p>
       <p>Quantity: {item.quantity}</p>
 
-      <button onClick={handleDecrease} disabled={item.quantity === 1}>
-        -
-      </button>
-      <button onClick={handleIncrease}>+</button>
-      <button
-        onClick={handleRemove}
-        style={{ marginLeft: "1rem", color: "red" }}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          marginTop: "0.5rem",
+        }}
       >
-        Remove
-      </button>
+        <button onClick={handleDecrease} disabled={item.quantity === 1}>
+          -
+        </button>
+        <button onClick={handleIncrease}>+</button>
+        <button
+          onClick={handleRemove}
+          style={{
+            backgroundColor: "#dc3545",
+            color: "white",
+            padding: "0.5rem 1rem",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
+          Remove
+        </button>
+      </div>
     </div>
   );
 }

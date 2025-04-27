@@ -22,7 +22,7 @@ function CheckoutPage() {
   }
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="container">
       <CartIcon />
       <h1>Checkout</h1>
       {cartItems.map((item) => (

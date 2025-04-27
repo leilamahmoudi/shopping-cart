@@ -1,12 +1,87 @@
-# React + Vite
+# Shopping Cart Assignment 🛒
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple shopping cart application built with **React** and **Vite**.  
+It allows users to browse products, select variants, add items to the cart, manage their cart, and proceed to checkout.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Features
 
-## Expanding the ESLint configuration
+- **Product List View**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  - Browse all available products.
+  - See product name and price.
+  - Navigate to product details.
+
+- **Product Details View**
+
+  - View product information and available variants.
+  - Select variant (e.g., color, storage, power).
+  - Add product to the cart (only if available).
+  - Visual feedback when product is added.
+
+- **Shopping Cart**
+
+  - View items added to the cart.
+  - Update item quantities.
+  - Remove items from the cart.
+  - Dynamic total price calculation.
+
+- **Checkout View**
+
+  - Final cart overview before payment.
+  - Increment, decrement, or remove items.
+
+- **Testing**
+  - Unit tests for CartContext (add, remove, update logic).
+  - UI tests for ProductListPage (rendering products, View Details buttons).
+
+---
+
+## 🚀 How to Run Locally
+
+1. Clone the repository:
+
+```bash
+git clone [repository-link]
+cd shopping-cart
+```
+
+2. Install dependencies:
+   npm install
+
+3. Start the development server:
+   npm run dev
+
+4. Open your browser at:
+   http://localhost:5173
+
+## 🧪 How to Run Tests
+
+Run all tests using:
+
+````bash
+npx vitest
+
+Or run in watch mode (for continuous testing):
+
+```bash
+npx vitest --watch
+
+````
+
+## 🛠 Tech Stack
+
+- **React**
+- **Vite**
+- **React Context API**
+- **React Router DOM**
+- **Testing Library** (`@testing-library/react`)
+- **Vitest**
+
+## 📋 Notes
+
+- Data is mocked from a provided JSON file (`src/data/inventory.json`).
+- Some variants may be out of stock and are disabled in the selection.
+- Basic styling is kept minimal and functional, focusing on implementation over design.
+- Tests focus on important functional areas rather than aiming for 100% coverage.

@@ -31,7 +31,7 @@ function ProductDetailsPage() {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="container">
       <CartIcon />
       <h1>{product.name}</h1>
       <p>Brand: {product.brand}</p>

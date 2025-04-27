@@ -11,7 +11,7 @@ function ProductListPage() {
   }, []);
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="container">
       <CartIcon />
       <h1>Products</h1>
       {products.map((product) => (
