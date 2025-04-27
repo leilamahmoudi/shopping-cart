@@ -1,8 +1,12 @@
-import { expect, describe, it } from "vitest";
+import { expect, describe, it, beforeEach } from "vitest";
 import { renderHook, act } from "@testing-library/react";
 import { CartProvider, useCart } from "./CartContext";
 
 describe("CartContext", () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
   it("should add an item to the cart", () => {
     const wrapper = ({ children }) => <CartProvider>{children}</CartProvider>;
     const { result } = renderHook(() => useCart(), { wrapper });
