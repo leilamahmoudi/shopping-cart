@@ -3,6 +3,7 @@ import { useState } from "react";
 import data from "../data/inventory.json";
 import CartIcon from "../components/CartIcon";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 function ProductDetailsPage() {
   const { id } = useParams();
@@ -33,6 +34,9 @@ function ProductDetailsPage() {
   return (
     <div className="container">
       <CartIcon />
+      <Link to="/" style={{ display: "inline-block", marginBottom: "1rem" }}>
+        <button>← Back to Products</button>
+      </Link>
       <h1>{product.name}</h1>
       <p>Brand: {product.brand}</p>
       <p>Price: {product.price} SEK</p>
