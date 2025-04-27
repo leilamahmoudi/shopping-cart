@@ -43,7 +43,7 @@ It allows users to browse products, select variants, add items to the cart, mana
 1. Clone the repository:
 
 ```bash
-git clone [repository-link]
+git clone https://github.com/leilamahmoudi/shopping-cart
 cd shopping-cart
 ```
 
