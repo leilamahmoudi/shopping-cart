@@ -4,7 +4,9 @@ function CartItem({ item }) {
   const { updateQuantity, removeFromCart } = useCart();
 
   const handleIncrease = () => {
-    updateQuantity(item.key, item.quantity + 1);
+    if (item.quantity < item.option.quantity) {
+      updateQuantity(item.key, item.quantity + 1);
+    }
   };
 
   const handleDecrease = () => {
@@ -44,10 +46,38 @@ function CartItem({ item }) {
           marginTop: "0.5rem",
         }}
       >
-        <button onClick={handleDecrease} disabled={item.quantity === 1}>
+        <button
+          onClick={handleDecrease}
+          disabled={item.quantity === 1}
+          style={{
+            padding: "0.5rem 1rem",
+            border: "none",
+            borderRadius: "5px",
+            cursor: item.quantity === 1 ? "not-allowed" : "pointer",
+            backgroundColor: item.quantity === 1 ? "#ccc" : "#007bff",
+            color: "white",
+          }}
+        >
           -
         </button>
-        <button onClick={handleIncrease}>+</button>
+
+        <button
+          onClick={handleIncrease}
+          disabled={item.quantity >= item.option.quantity}
+          style={{
+            padding: "0.5rem 1rem",
+            border: "none",
+            borderRadius: "5px",
+            cursor:
+              item.quantity >= item.option.quantity ? "not-allowed" : "pointer",
+            backgroundColor:
+              item.quantity >= item.option.quantity ? "#ccc" : "#007bff",
+            color: "white",
+          }}
+        >
+          +
+        </button>
+
         <button
           onClick={handleRemove}
           style={{
@@ -62,6 +92,7 @@ function CartItem({ item }) {
           Remove
         </button>
       </div>
+      <p>Available Stock: {item.option.quantity}</p>
     </div>
   );
 }
