@@ -3,6 +3,10 @@
 This is a simple shopping cart application built with **React** and **Vite**.  
 It allows users to browse products, select variants, add items to the cart, manage their cart, and proceed to checkout.
 
+## 🌐 Live Demo
+
+Check out the live version here: [Live Demo on Vercel](https://shopping-cart-ashen-kappa.vercel.app/)
+
 ---
 
 ## 📦 Features
