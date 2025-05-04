@@ -6,7 +6,7 @@ import data from "../data/inventory.json";
 
 function ProductDetailsPage() {
   const { id } = useParams();
-  const { addToCart } = useCart();
+  const { addToCart, cartItems } = useCart();
   const product = data.items.find((item) => item.id === parseInt(id));
 
   const [selectedOption, setSelectedOption] = useState(null);
@@ -28,12 +28,20 @@ function ProductDetailsPage() {
       setTimeout(() => setErrorMessage(""), 3000);
       return;
     }
+    const key = `${product.id}-${JSON.stringify(selectedOption)}`;
+    const existingItem = cartItems.find((item) => item.key === key);
+    const currentQty = existingItem ? existingItem.quantity : 0;
+
     if (selectedOption.quantity === 0) {
       setErrorMessage("Selected variant is out of stock.");
       setTimeout(() => setErrorMessage(""), 3000);
       return;
     }
-
+    if (currentQty >= selectedOption.quantity) {
+      setErrorMessage("You've reached the stock limit for this variant.");
+      setTimeout(() => setErrorMessage(""), 3000);
+      return;
+    }
     addToCart(product, selectedOption);
     setAddedMessage("Added to cart!");
     setErrorMessage("");
